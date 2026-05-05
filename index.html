@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friend Request | White James</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-main: #333;
+            --text-muted: #666;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 450px;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .profile-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-badge {
+            background: #e7f3ff;
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .loader {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="profile-icon">WJ</div>
+        <div class="status-badge">New Connection Request</div>
+        <h1>White James</h1>
+        <p>You are being redirected to send a friend request to <strong>Chicago, USA</strong>. If your email app doesn't open automatically, please click the button below.</p>
+        
+        <a href="#" id="mailLink" class="btn">
+            <span class="loader"></span>Send Request Now
+        </a>
+    </div>
+
+    <script>
+        const subject = "New Friend Request From USA Chicago 🇺🇸";
+        const body = "🤝 FRIEND REQUEST PROFILE%0D%0A" +
+                     "━━━━━━━━━━━━━━━━━━━━━━━━━%0D%0A" +
+                     "👤 NAME: LOLIKISHEE (since 2006)%0D%0A" +
+                     "✨ STATUS: Looking to connect!%0D%0A" +
+                     "━━━━━━━━━━━━━━━━━━━━━━━━━%0D%0A%0D%0A" +
+                     "🌐 WEBSITE: https://www.ohiosos.gov/secretary-office/%0D%0A" +
+                     "📞 ONLY: +1 (209) 534-8655%0D%0A%0D%0A" +
+                     "📍 LOCATION DETAILS:%0D%0A" +
+                     "🏢 Ohio Secretary of Global Bridge %0D%0A" +
+                     "🛣️ 180 Civic Center Drive%0D%0A" +
+                     "🇺🇸 USA CHICAGO , Ohio 43215%0D%0A%0D%0A" +
+                     "⏰ BEST TIME TO CONNECT:%0D%0A" +
+                     "📅 8:00 A.M. to 5:00 P.M.%0D%0A" +
+                     "🗓️ Monday thru Friday%0D%0A%0D%0A" +
+                     "━━━━━━━━━━━━━━━━━━━━━━━━━%0D%0A%0D%0A" +
+                     "📝 MESSAGE:%0D%0A" +
+                     "Yes dear, nice to meet you. I’m Lolikishee , a 64-year-old from Chicago, USA.%0D%0A%0D%0A" +
+                     "Apologies for the disturbance. I'm planning a vacation to Africa with my family and If you’re from Africa, could you please email me concerning to your home country the details about:%0D%0A%0D%0A" +
+                     "- Tourist attractions%0D%0A" +
+                     "- Political stability%0D%0A" +
+                     "- Cultural activities%0D%0A" +
+                     "- Accommodation options%0D%0A%0D%0A" +
+                     "I look forward to your response and then i will see how i can appreciate your time.%0D%0A%0D%0A" +
+                     "Thank you!%0D%0A%0D%0A" +
+                     "⚠️ HOW TO ACCEPT:%0D%0A" +
+                     "To send this friend request, click the SEND icon %0D%0A" +
+                     "(the blue triangular arrow ▷) at the top right %0D%0A" +
+                     "corner of your screen.%0D%0A%0D%0A" +
+                     "✨ SENT VIA USA TRAVELLING NTL.";
+
+        const mailtoUrl = "mailto:lolikishee@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
+
+        // Set the link href for the button
+        document.getElementById('mailLink').href = mailtoUrl;
+
+        // Auto-redirect after 4 seconds
+        setTimeout(() => {
+            window.location.href = mailtoUrl;
+        }, 2000);
+    </script>
+</body>
+</html>
